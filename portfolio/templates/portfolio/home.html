@@ -1,0 +1,35 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+<div class=" justify-content-center my-3 text-center">
+    <h1>Портфолио Джахонгира</h1>
+    <img src="{% static 'portfolio/images/iam.JPG' %}" alt="me" height="500px" width="350px"  id="myimg">
+    <br>
+</div>
+
+    <br>
+<div class="row">
+    <br><br>
+    <h4>Проекты:</h4>
+      <hr>
+
+    {% for project in projects  %}
+    <div class="col-lg-4 col-md-6">
+
+        {% if project.url %}
+        <a href="{{ project.url }}">
+          <img src="{{ project.image.url }}" class="img-fluid mb-2">
+        </a>
+        {% else %}
+    
+        <img src="{{ project.image.url }}" class="img-fluid mb-2">
+        {% endif %}
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+    
+      </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'portfolio/base.html' %}
+{% block title %}{{blog.title}}{% endblock %}
+
+{% block content %}
+    <h1></h1>
+    <br>
+    <h2 class="text-xenter mt-5">{{blog.title}}</h2>
+   
+    <br>
+    
+    
+    <p>{{blog.description|truncatechars:100}}</p>
+
+    {{blog.date}}
+{% endblock %}
